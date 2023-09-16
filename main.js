@@ -14,7 +14,7 @@ function mostrarProductos() {
 }
 
 function simulador() {
-  console.log("¡Bienvenido al simulador de productos!");
+  console.log("¡Bienvenido a mi tienda!");
   mostrarProductos();
 
   const seleccion = parseInt(prompt("Elija un número de producto (1-5):"));
