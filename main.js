@@ -10,11 +10,13 @@ function mostrarProductos() {
   const productosContainer = document.getElementById("productos-container");
   productosContainer.innerHTML = '<h2>Lista de productos disponibles:</h2>';
 
-  productos.forEach((producto,index) => {
+  const productosGuardados = JSON.parse(localStorage.getItem("productos")) || productos;
+
+  productosGuardados.forEach((producto, index) => {
     const productoDiv = document.createElement("div");
     productoDiv.innerHTML = `${index + 1}. ${producto.nombre} - $${producto.precio}`;
     productosContainer.appendChild(productoDiv);
-  })
+  });
 }
 
 function manejarSeleccion() {
@@ -22,7 +24,9 @@ function manejarSeleccion() {
   const seleccion = parseInt(seleccionInput.value);
 
   if (seleccion >= 1 && seleccion <= 5) {
-    const productoElegido = productos.find((_, index) => index === seleccion - 1);
+    const productoElegido = productos[seleccion - 1];
+
+    localStorage.setItem("productoElegido", JSON.stringify(productoElegido));
     mostrarMensaje(`Ha seleccionado: ${productoElegido.nombre}`);
   } else {
     mostrarMensaje("Selección no válida. Por favor, elija un número de producto entre 1 y 5.");
@@ -32,7 +36,7 @@ function manejarSeleccion() {
 function mostrarMensaje(mensaje) {
   const mensajeDiv = document.createElement("div");
   mensajeDiv.innerHTML = `<p>${mensaje}</p>`;
-  document.body.appendChild(mensajeDiv);
+  document.getElementById("mensaje-container").appendChild(mensajeDiv);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
