@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Botines premier</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Bienvenido a mi tienda de Botines premium</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Botines premier</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <h1>Bienvenido a mi tienda de Botines premium</h1>
+        <div id="products-container">
 
-    <div id="productos-container"></div>
-
-    <form id="seleccion-form">
-      <label for="seleccion-input">Elija un numero de producto (1-5):</label>
-      <input type="number" id="seleccion-input" min="1" max="5" required />
-      <button type="submit">Seleccionar</button>
-    </form>
-
-    <div id="mensaje-container"></div>
-
-    <script src="main.js"></script>
-  </body>
+        </div>
+        <form id="seleccion-form">
+            <label for="seleccion-input">Elija un numero de producto (1-5):</label>
+            <input type="number" id="seleccion-input" min="1" max="5" required />
+            <button type="submit" onclick="selectProduct(event);">Seleccionar</button>
+        </form>
+        <button type="button" onclick="finishPurchase(event)">Finish purchase</button>
+        <div id="mensaje-container">
+            
+        </div>
+        <script src="main.js"></script>
+    </body>
 </html>
